@@ -9,7 +9,7 @@ export default function IbovImage({ ibovData }: any) {
     const down = ibovData.filter(isDown);
     const stock = query.username != "up" ? down[0] : up;
 
-    function isDown (value, index, array) {
+    function isDown (value: any, index: any, array: any) {
         if (value.resultType == 1)
             return value;
     }

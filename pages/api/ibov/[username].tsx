@@ -31,7 +31,8 @@ export default async function ibovImages(req: NextApiRequest, res: NextApiRespon
     res.setHeader('Content-Type', `image/png`);
     res.setHeader(
       'Cache-Control',
-      `public, s-maxage=10, max-age=31536000, stale-while-revalidate`
+      `public, s-maxage=10, max-age=10, stale-while-revalidate`
+      //`public, s-maxage=10, max-age=31536000, stale-while-revalidate`
     );
     res.statusCode = 200;
     res.end(file);
