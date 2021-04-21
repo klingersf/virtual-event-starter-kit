@@ -17,11 +17,11 @@ import {GetServerSideProps, GetStaticProps} from 'next';
 import IbovImage from '@components/ibov';
 
 
-export default function IbovOnlyPage(data) {
+export default function IbovOnlyPage({ data }) {
   return <IbovImage ibovData={data}/>;
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     const uri = "https://statusinvest.com.br/acao/getaltabaixa?IndiceCode=ibovespa";
     // const uri = "https://statusinvest.com.br/stock/getaltabaixa?IndiceCode=sp-500";
     const res = await fetch(uri);
