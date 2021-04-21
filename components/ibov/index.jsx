@@ -4,13 +4,13 @@ import styles from './ibov.module.css';
 export default function IbovImage(ibovData) {
     const { query } = useRouter();
     const up = ibovData[0];
-    const down = ibovData.filter(isDown);
-    const stock = query.username != "up" ? down[0] : up;
+    //const down = ibovData.filter(isDown);
+    const stock = query.username != "up" ? ibovData[60] : up;
 
-    function isDown (value) {
-        if (value.resultType == 1)
-            return value;
-    }
+    //function isDown (value) {
+    //    if (value.resultType == 1)
+    //        return value;
+    //}
 
     return (
         <div className={ stock.resultType == 0 ? styles.bull : styles.bear}>
