@@ -11,6 +11,8 @@ export default function ShortLinks() {
                 <li><a href={'https://2handyn.vercel.app/api/ibov/down'}>DOWN - ibov</a></li>
                 <li><a href={'https://2handyn.vercel.app/api/sp500/up'}>UP - sp500</a></li>
                 <li><a href={'https://2handyn.vercel.app/api/sp500/down'}>DOWN - sp500</a></li>
+                <li><a href={'https://2handyn.vercel.app/api/storycad/up'}>CAD - up</a></li>
+                <li><a href={'https://2handyn.vercel.app/api/storycad/down'}>CAD - down</a></li>
             </ul>
         </div>
     );

@@ -1,0 +1,12 @@
+.base img {
+  position: absolute;
+  top: 0px;
+  left: 480px;
+  width: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 90%;
+}
+
