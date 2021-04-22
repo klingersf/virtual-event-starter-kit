@@ -8,6 +8,7 @@ export default function IbovImage({ ibovData }: any) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const down = ibovData.filter(isDown);
     const stock = query.username != "up" ? down[0] : up;
+    const priceStock = stock.beforeMarket == "0,00" ? stock.afterMarket : stock.beforeMarket;
 
     function isDown (value: any, index: any, array: any) {
         if (value.resultType == 1)
@@ -21,7 +22,7 @@ export default function IbovImage({ ibovData }: any) {
                 <div className={styles.variation}>{stock.resultPercentageValue}<span>%</span></div>
                 <div className={styles.stockname}>{stock.companyName}</div>
                 <div className={stock.resultType == 0 ? styles.tickerBull : styles.tickerBear}>{stock.code}</div>
-                <div className={stock.resultType == 0 ? styles.priceBull : styles.priceBear}>{stock.beforeMarket}</div>
+                <div className={stock.resultType == 0 ? styles.priceBull : styles.priceBear}>{priceStock}</div>
             </div>
         </div>
 

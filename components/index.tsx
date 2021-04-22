@@ -22,6 +22,7 @@ import ConfContainer from './conf-container';
 import Hero from './hero';
 import Form from './form';
 import LearnMore from './learn-more';
+import ShortLinks from "@components/shortlinks";
 
 type Props = {
   defaultUserData: UserData;
@@ -52,6 +53,7 @@ export default function Conf({
               <Hero />
               <Form />
               <LearnMore />
+              <ShortLinks />
             </>
           ) : (
             <Ticket
