@@ -1,5 +1,15 @@
 import {NextApiRequest, NextApiResponse} from "next";
 
+function isDown (value: any, index: any, array: any) {
+    if (value.resultType == 1)
+        return value;
+}
+
+function isUp (value: any, index: any, array: any) {
+    if (value.resultType == 0)
+        return value;
+}
+
 export default async function MarketApi(req: NextApiRequest, res: NextApiResponse) {
     let url: string;
     const { market } = req.query || {};
@@ -47,6 +57,10 @@ export default async function MarketApi(req: NextApiRequest, res: NextApiRespons
             const data = await resApi.json();
             const dynamicDate = new Date();
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+            const down = data.filter(isDown);
+            const up = data.filter(isUp);
+
             res.setHeader(
                 'Cache-Control',
                 `public, s-maxage=10, max-age=86400, stale-while-revalidate`
@@ -55,7 +69,9 @@ export default async function MarketApi(req: NextApiRequest, res: NextApiRespons
             res.json({
                 // uri: uri,
                 date: dynamicDate,
-                stocks: data
+                up: up,
+                down: down
+                // stocks: data
             });
         }
 

@@ -8,7 +8,8 @@ export default function IbovImage({ ibovData }: any) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     const down = ibovData.filter(isDown);
     const stock = query.username != "up" ? down[0] : up;
-    const priceStock = stock.beforeMarket == "0,00" ? stock.afterMarket : stock.beforeMarket;
+    // const priceStock = stock.beforeMarket == "0,00" ? stock.afterMarket : stock.beforeMarket;
+    const priceStock = stock.afterMarket;
 
     function isDown (value: any, index: any, array: any) {
         if (value.resultType == 1)
