@@ -14,7 +14,9 @@ export default function MarketFeedPage({ stocksData, market, teste }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (request: NextApiRequest, response: NextApiResponse) => {
+export const getServerSideProps: (request: NextApiRequest, response: NextApiResponse) => Promise<{
+    props: { market: string | null; teste: string | null; stocksData: any }
+}> = async (request: NextApiRequest, response: NextApiResponse) => {
 
   const market = request.query?.market?.toString() || null;
   const test = request.query?.test?.toString() || null;
@@ -27,6 +29,8 @@ export const getServerSideProps: GetServerSideProps = async (request: NextApiReq
   const scrap = await scrapMarket();
   // const scrap = await scrapMarketTest();
   console.log(scrap)
+
+  const responseCall = response
 
 
   return {
