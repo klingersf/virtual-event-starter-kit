@@ -14,7 +14,7 @@ export default async function MarketApi(req: NextApiRequest, res: NextApiRespons
     let url: string;
     const { market } = req.query || {};
     const marketString = market.toString();
-    if (market) {
+    if (marketString) {
 
         let stocksApi = {
             market: "",
