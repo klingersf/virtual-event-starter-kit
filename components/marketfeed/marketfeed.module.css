@@ -1,0 +1,64 @@
+.base {
+    width: 1080px;
+    height: 1080px;
+    background: dodgerblue;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.market {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 250px;
+    font-weight: 900;
+    letter-spacing: 15px;
+    transform: rotate(14deg);
+    opacity: 55%;
+    font-family: 'Bowlby One SC', cursive;;
+}
+
+.variation {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    font-size: 140px;
+    font-family: 'Bowlby One SC', cursive;
+}
+
+.price {
+    position: absolute;
+    top: 10px;
+    right: -100px;
+    width: 100%;
+    text-align: right;
+    font-size: 50px;
+    font-family: 'Bowlby One SC', cursive;
+}
+
+.change {
+    position: absolute;
+    top: 70px;
+    right: -50px;
+    width: 100%;
+    text-align: right;
+    font-size: 40px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.stocksCode {
+    position: absolute;
+    /*top: 400px;*/
+    /*right: 400px;*/
+    width: 100%;
+    text-align: right;
+    font-size: 40px;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+

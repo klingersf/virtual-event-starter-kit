@@ -1,5 +1,4 @@
 import {GetServerSideProps, GetStaticProps} from 'next';
-import IbovImage from '@components/ibov';
 import StoryCad from "@components/cad";
 
 
