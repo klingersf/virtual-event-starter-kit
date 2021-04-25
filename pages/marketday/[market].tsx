@@ -11,7 +11,8 @@ export default function DayMarket({ stocksData, market }: any) {
             </>
         );
     }
-    const {date, up, down} = stocksData
+
+    const {up, down} = stocksData
     return (
         <>
             <ListTopStocks topType={"altas"} stockList={up} market={market} />
