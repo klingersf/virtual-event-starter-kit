@@ -62,6 +62,8 @@ export default async function scrapMarket() {
 
     console.log(dataScrap)
 
+    return dataScrap;
+
     await browser.close();
 
     // const page = await browser.newPage();
