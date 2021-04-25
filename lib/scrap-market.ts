@@ -29,18 +29,18 @@ export default async function scrapMarket() {
             let marketChange;
 
             function getMarketValue() {
-                let text = document.querySelectorAll('strong.value')[0].innerText!;
-                marketValue = text.trim();
+                let text = document.querySelectorAll('strong.value')[0];
+                marketValue = text.innerHTML.trim();
             }
 
             function getMarketVariation() {
-                let text = document.querySelectorAll('strong.value')[3].innerText!;
-                marketVariation = text.trim();
+                let text = document.querySelectorAll('strong.value')[3];
+                marketVariation = text.innerHTML.trim();
             }
 
             function getMarketChange() {
-                let text = document.querySelectorAll('strong.value')[0].innerText!;
-                marketChange = text.trim();
+                let text = document.querySelectorAll('strong.value')[0];
+                marketChange = text.innerHTML.trim();
             }
 
             function getData() {
