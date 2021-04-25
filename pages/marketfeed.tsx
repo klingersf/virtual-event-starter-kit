@@ -1,6 +1,6 @@
 import MarketFeed from "@components/marketfeed";
 import {GetServerSideProps, NextApiRequest, NextApiResponse} from "next";
-import scrapMarket from "@lib/scrap-market-local";
+import scrapMarket from "@lib/scrap-market";
 
 
 export default function MarketFeedPage({ stocksData, market, teste }: any) {
