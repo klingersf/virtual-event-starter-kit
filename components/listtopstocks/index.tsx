@@ -4,7 +4,7 @@ function listFive(stocks: any, type: string, market: string) {
     const typelist = type == "altas" ? "up" : "down";
     let listStocks = [];
     for (let i = 0; i < 5; i++) {
-        listStocks.push(<li key={i}><a href={`https://2handyn.vercel.app/api/${market}/${typelist}`}>{stocks[i].resultPercentageValue} - {stocks[i].code} - {stocks[i].companyName}</a></li>);
+        listStocks.push(<li key={i}><a href={`https://2handyn.vercel.app/api/${market}/${typelist}`}>{stocks[i].resultPercentageValue}% - {stocks[i].code} - {stocks[i].companyName}</a></li>);
     }
     return listStocks;
 }

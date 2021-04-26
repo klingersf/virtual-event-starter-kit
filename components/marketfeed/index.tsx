@@ -33,7 +33,6 @@ export default function MarketFeed({stockList, market, marketDay}: any) {
     const signal = marketVariation >= 0 ? "+" : "" ;
     const position = marketVariation >= 0 ? upPosition : downPosition ;
     const variationImg = marketVariation >= 0 ? "up" : "down" ;
-    // const market =
     return (
         <>
             <div className={styles.base}>
