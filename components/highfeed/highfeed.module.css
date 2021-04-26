@@ -68,8 +68,15 @@
     height: 250px;
     border-radius: 50%;
     border: 15px solid #252729;
-    /*background-image: url("https://cdn-statusinvest.azureedge.net/img/company/stock/cover/2732.jpg");*/
-    background-size: cover;
-    background-position: center;
-    /*background-color: red;*/
+    overflow: hidden;
+
+}
+
+.logoimg {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    height: 100%;
+    width: auto;
+    transform: translate(-50%,-10%);
 }

@@ -1,7 +1,7 @@
 import styles from './highfeed.module.css';
 
 export default function HighFeed() {
-    const type = "stock";
+    const type = "stock/";
     const stockId = 2732;
     return (
         <>
@@ -12,7 +12,8 @@ export default function HighFeed() {
             <div className={styles.price}>232,95</div>
             <div className={styles.company}>Visa inc</div>
             <div className={styles.msg}>atingiu a máxima histórica</div>
-            <div className={styles.logo} style={{backgroundImage:`url("https://cdn-statusinvest.azureedge.net/img/company/${type}/cover/${stockId}.jpg")`}}>
+            <div className={styles.logo}>
+                <img className={styles.logoimg} src={`https://cdn-statusinvest.azureedge.net/img/company/${type}cover/${stockId}.jpg`}/>
             </div>
         </>
     );
