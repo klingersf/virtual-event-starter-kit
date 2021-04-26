@@ -41,6 +41,6 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
       marketDay,
       market,
       stocksData: data
-    } // will be passed to the page component as props
+    } // will be passed to the page component as props -
   };
 };
