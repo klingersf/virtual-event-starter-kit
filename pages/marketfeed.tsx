@@ -17,7 +17,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
 }> = async (request: NextApiRequest, response: NextApiResponse) => {
 
   const market = request.query?.market?.toString() || null;
-  const test = request.query?.test?.toString() || null;
+  const test = request.query?.test?.toString() || 0;
 
   const uri = `https://2handyn.vercel.app/api/stocks/${market}`;
   const res = await fetch(uri);
@@ -31,7 +31,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
 
   const prices = market == "sp500" ? dataMarket : dataMarket[0].prices;
   const marketValue = prices[prices.length-1].price;
-  const marketChange = (parseFloat((prices[prices.length-1].price - prices[prices.length-2].price-test).toFixed(2)));
+  const marketChange = (parseFloat(((prices[prices.length-1].price - prices[prices.length-2].price)+(-test)).toFixed(2)));
   const marketVariation = (parseFloat(( marketChange / prices[prices.length-2].price * 100).toFixed(2)));
 
   const marketDay = {marketValue, marketChange, marketVariation }
