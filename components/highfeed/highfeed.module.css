@@ -1,0 +1,75 @@
+.base {
+    width: 1080px;
+    height: 1080px;
+    background: dodgerblue;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    position: absolute;
+    top: 510px;
+    left: 30px;
+    width: 880px;
+    font-family: 'Bowlby One SC', cursive;
+    color: #252729;
+    text-align: right;
+    font-size: 96px;
+    text-transform: uppercase;
+}
+
+.company {
+    position: absolute;
+    top: 640px;
+    left: 280px;
+    width: 630px;
+    text-transform: uppercase;
+    font-family: 'Hammersmith One', sans-serif;
+    color: #252729;
+    text-align: right;
+    font-size: 76px;
+    line-height: 5pc;
+}
+
+.stocksCode {
+    position: absolute;
+    color: #252729;
+    top: 600px;
+    left: 830px;
+    width: 300px;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 120px;
+    font-family: 'Anton', sans-serif;
+    transform: rotate(270deg);
+}
+
+.msg {
+    position: absolute;
+    top: 950px;
+    left: 190px;
+    width: 890px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #252729;
+    text-align: center;
+    font-size: 36px;
+    line-height: 5pc;
+}
+
+.logo {
+    position: absolute;
+    top: 280px;
+    left: 790px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 15px solid #252729;
+    /*background-image: url("https://cdn-statusinvest.azureedge.net/img/company/stock/cover/2732.jpg");*/
+    background-size: cover;
+    background-position: center;
+    /*background-color: red;*/
+}
