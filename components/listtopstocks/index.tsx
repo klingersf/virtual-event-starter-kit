@@ -12,7 +12,7 @@ function listFive(stocks: any, type: string, market: string) {
 export default function ListTopStocks({topType, stockList, market}: any) {
     return (
         <>
-            <h1>Maiores {topType} do dia:</h1>
+            <h1><a href={`https://2handyn.vercel.app/api/market/${market}`}>Maiores {topType} do dia:</a></h1>
             <ul className={styles.listStocks}>
                 {listFive(stockList, topType, market)}
             </ul>
