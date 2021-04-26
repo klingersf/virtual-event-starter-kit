@@ -7,11 +7,11 @@ export default async function storyCadImages(req: NextApiRequest, res: NextApiRe
   const { market } = req.query || {};
   const marketString = market.toString();
   if (marketString) {
-      url = `${SITE_URL}/storycad?market=${encodeURIComponent(
+      url = `${SITE_URL}/marketfeed?market=${encodeURIComponent(
         marketString
       )}`;
 
-      url = marketString == "test" ? `${SITE_URL}/storycad?market=ibov&test=2000` : url ;
+      url = marketString == "test" ? `${SITE_URL}/marketfeed?market=ibov&test=2000` : url ;
 
     const file = await screenshot(url, 1080, 1080);
     res.setHeader('Content-Type', `image/png`);
