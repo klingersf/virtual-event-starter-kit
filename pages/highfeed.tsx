@@ -43,7 +43,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
         ? quoteData['Global Quote']['01. symbol'].substr(0, 5)
         : quoteData['Global Quote']['01. symbol'];
     const price: number = (parseFloat((+quoteData['Global Quote']['05. price']).toFixed(2)))
-    const high: string = (parseFloat((+quoteData['Global Quote']['03. high']).toFixed(2)))
+    const high: number = (parseFloat((+quoteData['Global Quote']['03. high']).toFixed(2)))
 
     const name: string = await stockName(stock, type);
 
