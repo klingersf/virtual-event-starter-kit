@@ -28,7 +28,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     props: { stockData: any }
 }> = async (request: NextApiRequest, response: NextApiResponse) => {
 
-    const stock = request.query?.stock?.toString() || null;
+    const stock = request.query?.stock?.toString() || "";
     const highValue = request.query?.h?.toString() || 0;
 
     const text: string = highValue == 0 ? "histórica" : "de 52 semanas";
@@ -58,7 +58,6 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
         text
     }
 
-    console.log(data)
     return {
         props: {
             // marketDay,
