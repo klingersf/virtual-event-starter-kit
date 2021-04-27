@@ -13,8 +13,8 @@ export default function HighFeed() {
             <div className={styles.company}>Visa inc</div>
             <div className={styles.msg}>atingiu a máxima histórica</div>
             <div className={styles.logo}>
-                {/*<img className={styles.logoimg} src={`https://cdn-statusinvest.azureedge.net/img/company/${type}cover/${stockId}.jpg`}/>*/}
-                <img className={styles.logoimg} src={`/assets/marketfeed/us.png`}/>
+                <img className={styles.logoimg} src={`https://cdn-statusinvest.azureedge.net/img/company/${type}cover/${stockId}.jpg`}/>
+                {/*<img className={styles.logoimg} src={`https://d187qskirji7ti.cloudfront.net/companies/wide_images/000/000/114/1463069452_large.png`}/>*/}
             </div>
         </>
     );
