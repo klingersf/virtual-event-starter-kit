@@ -1,20 +1,33 @@
 import styles from './highfeed.module.css';
 
-export default function HighFeed() {
-    const type = "stock/";
-    const stockId = 2732;
+export default function HighFeed({ stockData }: any) {
+
+    const {
+        type,
+        imgID,
+        name,
+        code,
+        high,
+        price,
+        text
+    } = stockData
+
+    const linkImg = type == "br"
+        ? `https://files.bastter.com/acao/${imgID}.gif`
+        : `https://bastter-images.b-cdn.net/stock/${imgID}.png`;
+
+
     return (
         <>
             <div className={styles.base}>
-                <img src={`/assets/marketfeed/us.png`}/>
+                <img src={`/assets/marketfeed/${type}.png`}/>
             </div>
-            <div className={styles.stocksCode}>V</div>
-            <div className={styles.price}>232,95</div>
-            <div className={styles.company}>Visa inc</div>
-            <div className={styles.msg}>atingiu a máxima histórica</div>
+            <div className={styles.stocksCode}>{code}</div>
+            <div className={styles.price}>{high.toLocaleString('pt-BR', { minimumFractionDigits: 2})}</div>
+            <div className={styles.company}>{name}</div>
+            <div className={styles.msg}>atingiu a máxima {text}</div>
             <div className={styles.logo}>
-                {/*<img className={styles.logoimg} src={`https://cdn-statusinvest.azureedge.net/img/company/${type}cover/${stockId}.jpg`}/>*/}
-                <img className={styles.logoimg} src={`https://bastter-images.b-cdn.net/stock/V.png`}/>
+                <img className={styles.logoimg} src={linkImg}/>
             </div>
         </>
     );
