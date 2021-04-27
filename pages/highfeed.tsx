@@ -32,7 +32,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     const highValue = request.query?.h?.toString() || 0;
 
     const text: string = highValue == 0 ? "histórica" : "de 52 semanas";
-    const type: any = stock?.indexOf(".sa") > -1 ? "br" : "us";
+    const type: any = !(stock?.indexOf(".sa") <= -1) ? "br" : "us";
     const imgID: string = type == "br" ? stock.substr(0, 4) : stock;
 
     const uri = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=myapikey`;
