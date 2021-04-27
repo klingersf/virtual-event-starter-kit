@@ -28,11 +28,12 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     props: { stockData: any }
 }> = async (request: NextApiRequest, response: NextApiResponse) => {
 
-    const stock = request.query?.stock?.toString() || "";
+    const stock = request.query?.stock?.toString() || null;
     const highValue = request.query?.h?.toString() || 0;
 
     const text: string = highValue == 0 ? "histórica" : "de 52 semanas";
-    const type: any = (stock.indexOf(".sa") < -1) ? "br" : "us";
+    const type: any = (stock.indexOf(".sa") > -1) ? "br" : "us";
+    console.log(stock, type, stock.indexOf(".sa"))
     const imgID: string = type == "br" ? stock.substr(0, 4) : stock;
 
     const uri = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=myapikey`;
@@ -57,6 +58,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
         text
     }
 
+    console.log(data)
     return {
         props: {
             // marketDay,

@@ -5,14 +5,11 @@ import { SITE_URL } from '@lib/constants';
 export default async function storyCadImages(req: NextApiRequest, res: NextApiResponse) {
   let url: string;
   const { stock } = req.query || {};
-  const { h } = req.query || {};
   const stockString = stock.toString();
   if (stockString) {
       url = `${SITE_URL}/highfeed?stock=${encodeURIComponent(
         stockString
       )}`;
-
-      url = (h) ? `${url}&h=${h}` : url;
 
     const file = await screenshot(url, 1080, 1080);
     res.setHeader('Content-Type', `image/png`);
