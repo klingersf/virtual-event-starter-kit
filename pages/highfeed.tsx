@@ -31,7 +31,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     const stock = request.query?.stock?.toString() || null;
     const highValue = request.query?.h?.toString() || 0;
 
-    const text: number = highValue == 0 ? "histórica" : "de 52 semanas";
+    const text: string = highValue == 0 ? "histórica" : "de 52 semanas";
     const type: string = stock?.indexOf(".sa") > -1 ? "br" : "us";
     const imgID: string = type == "br" ? stock.substr(0, 4) : stock;
 
