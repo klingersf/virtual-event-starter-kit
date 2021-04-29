@@ -10,20 +10,6 @@ export default function HighFeedPage({ stockData }: any) {
   );
 }
 
-async function stockName(stock: string, type: string) {
-    if (type == "br") {
-        const uriStockBase = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stock}&apikey=myapikey`;
-        const resName = await fetch(uriStockBase);
-        const dataName = await resName.json();
-        return dataName['bestMatches'][0]['2. name'];
-    }
-
-    const uriStockBase = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stock}&apikey=myapikey`;
-    const resName = await fetch(uriStockBase);
-    const dataName = await resName.json();
-    return dataName['Name'];
-}
-
 export const getServerSideProps: (request: NextApiRequest, response: NextApiResponse) => Promise<{
     props: { stockData: any }
 }> = async (request: NextApiRequest, response: NextApiResponse) => {
@@ -33,20 +19,20 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
 
     const text: string = highValue == 0 ? "histórica" : "de 52 semanas";
     const type: any = (stock.indexOf(".sa") > -1) ? "br" : "us";
-    console.log(stock, type, stock.indexOf(".sa"))
     const imgID: string = type == "br" ? stock.substr(0, 4) : stock;
 
-    const uri = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=myapikey`;
+    const uri = `https://query2.finance.yahoo.com/v7/finance/quote?formatted=true&lang=pt-BR&region=BR&symbols=${stock}`;
     const res = await fetch(uri);
     const quoteData = await res.json();
+    const yfData = quoteData['quoteResponse']['result'][0];
 
-    const code: string = type == "br"
-        ? quoteData['Global Quote']['01. symbol'].substr(0, 5)
-        : quoteData['Global Quote']['01. symbol'];
-    const price: number = (parseFloat((+quoteData['Global Quote']['05. price']).toFixed(2)))
-    const high: number = (parseFloat((+quoteData['Global Quote']['03. high']).toFixed(2)))
-
-    const name: string = await stockName(stock, type);
+    let code: string = type == "br"
+        ? yfData.symbol.substr(0, 5)
+        : yfData.symbol;
+    code = (stock.indexOf("11.sa") > -1) ? yfData.symbol.substr(0, 6) : code;
+    const price: number = (parseFloat((+yfData.regularMarketPrice.raw).toFixed(2)))
+    const high: number = (parseFloat((+yfData.fiftyTwoWeekHigh.raw).toFixed(2)))
+    const name: string = yfData.longName;
 
     const data = {
         type,
@@ -60,8 +46,6 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
 
     return {
         props: {
-            // marketDay,
-            // market,
             stockData: data
         } // will be passed to the page component as props -
     };

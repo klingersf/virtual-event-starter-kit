@@ -53,8 +53,11 @@ export default async function MarketApi(req: NextApiRequest, res: NextApiRespons
             )}/getaltabaixa?IndiceCode=${encodeURIComponent(
                 stocksApi.market
             )}`;
+
             const resApi = await fetch(uri);
+            console.log(uri, resApi)
             const data = await resApi.json();
+            // console.log(data)
             const dynamicDate = new Date();
 
             // eslint-disable-next-line @typescript-eslint/no-unsafe-call
