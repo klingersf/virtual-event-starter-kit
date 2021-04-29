@@ -19,7 +19,8 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
 
     const text: string = highValue == 0 ? "histórica" : "de 52 semanas";
     const type: any = (stock.indexOf(".sa") > -1) ? "br" : "us";
-    const imgID: string = type == "br" ? stock.substr(0, 4) : stock;
+    let imgID: string = type == "br" ? stock.substr(0, 4) : stock;
+    imgID = imgID.indexOf("-") > -1 ? imgID.replace('-', '.') : imgID ;
 
     const uri = `https://query2.finance.yahoo.com/v7/finance/quote?formatted=true&lang=pt-BR&region=BR&symbols=${stock}`;
     const res = await fetch(uri);
