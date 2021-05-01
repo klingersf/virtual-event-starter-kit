@@ -1,6 +1,6 @@
 import styles from "@components/form.module.css";
 
-export default function FormHigh({typehigh, }) {
+export default function FormHigh({typehigh}: string) {
 
     let tickerStock = '';
 
