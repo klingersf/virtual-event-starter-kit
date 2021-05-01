@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+.centerlinks {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
 .mylinks {
     text-align: center;
     width: 50%;
