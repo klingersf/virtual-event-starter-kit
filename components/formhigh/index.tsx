@@ -4,12 +4,12 @@ export default function FormHigh({typehigh}: any) {
 
     let tickerStock = '';
 
-    function handleSubmit(e){
+    function handleSubmit(e: any){
         e.preventDefault();
         window.location.href = `https://2handyn.vercel.app/api/${typehigh}/${tickerStock}`
     };
 
-    function handleChange(e) {
+    function handleChange(e: any) {
         tickerStock = e.target.value
     }
 
