@@ -4,10 +4,11 @@ import {GetServerSideProps, NextApiRequest, NextApiResponse} from "next";
 
 export default function MarketFeedPage({ stocksData, market, marketDay }: any) {
   const {up, down} = stocksData
+  const listStocksImg = marketDay.marketVariation >= 0 ? up : down ;
 
   return (
       <>
-        <MarketFeed stockList={up} market={market} marketDay={marketDay} />
+        <MarketFeed stockList={listStocksImg} market={market} marketDay={marketDay} />
       </>
   );
 }
