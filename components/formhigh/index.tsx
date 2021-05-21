@@ -18,7 +18,7 @@ export default function FormHigh({typehigh}: any) {
         switch (typehigh) {
             case "lowfeed":   return "Mín.Hist";
             case "low52feed": return "Mín.52w";
-            case "52weekfeed":  return "Máx.52w";
+            case "52feed":  return "Máx.52w";
             default:      return "Máx.Hist.";
         }
     };
