@@ -13,7 +13,18 @@ export default function FormHigh({typehigh}: any) {
         tickerStock = e.target.value
     }
 
-    const sendText = typehigh == "highfeed" ? "Máx.Hist." : "52week";
+    //const sendText = typehigh == "highfeed" ? "Máx.Hist." : "52week";
+    const inputSendText = () => {
+        switch (typehigh) {
+            case "lowfeed":   return "Mín.Hist";
+            case "low52feed": return "Mín.52w";
+            case "52weekfeed":  return "Máx.52w";
+            default:      return "Máx.Hist.";
+        }
+    };
+
+    const sendText = inputSendText()
+
 
     return(
         <>

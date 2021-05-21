@@ -25,6 +25,12 @@ export default function ShortLinks() {
             <div className={styles.centerlinks}>
                 <FormHigh typehigh={"52feed"}/>
             </div>
+            <div className={styles.centerlinks}>
+                <FormHigh typehigh={"lowfeed"}/>
+            </div>
+            <div className={styles.centerlinks}>
+                <FormHigh typehigh={"low52feed"}/>
+            </div>
         </div>
 
     );
