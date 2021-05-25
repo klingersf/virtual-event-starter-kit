@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const data = await res.json();
     const baseData = data.quoteResponse.result[0]
 
-    function scalePercent(highValue, lowValue, currentVaule) {
+    function scalePercent(highValue: number, lowValue: number, currentVaule: number) {
         const sizeScale = highValue-lowValue;
         const currentScale = currentVaule-lowValue;
         return currentScale/sizeScale
