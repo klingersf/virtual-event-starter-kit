@@ -16,7 +16,9 @@ export default function ShortLinks() {
                     <li><a href={'https://2handyn.vercel.app/api/storycad/up'}>CAD - up</a></li>
                     <li><a href={'https://2handyn.vercel.app/api/storycad/down'}>CAD - down</a></li>
                     <li><a href={'https://2handyn.vercel.app/api/highfeed/'}>high</a></li>
-                    <li><a href={'https://2handyn.vercel.app/api/52feed/'}>feed</a></li>
+                    <li></li>
+                    <li><a href={'https://2handyn.vercel.app/api/coin/usd'}>Dólar</a></li>
+                    <li><a href={'https://2handyn.vercel.app/api/coin/eur'}>Euro</a></li>
                 </ul>
             </div>
             <div className={styles.centerlinks}>
