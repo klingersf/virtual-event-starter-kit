@@ -3,9 +3,26 @@ import {NextApiRequest, NextApiResponse} from "next";
 
 export default function DrawExp() {
 
+    const backgroundImage = `https://images.unsplash.com/photo-1519832979-6fa011b87667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1335&q=80`;
+    // const backgroundImage = `/assets/draw/cad_bg1.jpg`;
+
+    const dateRound =  `June 10, 2021 at 12:29:11 UTC`;
+    const programTitle =  `canadian experience class`;
+    const roundPoints = `3368`;
+    const invitations = `6000`;
+    const tieBrake = `April 28, 2021 at 05:45:14 UTC`;
+
     return (
         <div>
-            <DrawExpressEntry/>
+            {/*<DrawExpressEntry DrawExpressEntry={backgroundImage, dateRound, programTitle, roundPoints. invitations, tieBrake}/>*/}
+            <DrawExpressEntry
+                backgroundImage={backgroundImage}
+                dateRound={dateRound}
+                programTitle={programTitle}
+                roundPoints={roundPoints}
+                invitations={invitations}
+                tieBrake={tieBrake}
+            />
     </div>
 );
 }
