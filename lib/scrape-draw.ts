@@ -36,7 +36,7 @@ export default async function scrapeDraw({draw = 10}: { draw?: number }) {
       };
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
-  // await page.setViewport({ width: width, height: height });
+  await page.setViewport({ width: 800, height: 800 });
   // await page.goto(url, { waitUntil: 'networkidle0' });
   // return await page.screenshot({ type: 'png' });
 
