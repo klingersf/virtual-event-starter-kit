@@ -89,7 +89,7 @@ export default async function scrapeDraw({draw = 10}: { draw?: number }) {
         return returnedData;
     }
 
-    await browser.close();
+    // await browser.close();
 
     const url = `https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds/invitations-${draw}.html`
     return await drawData(url, '.well p')
