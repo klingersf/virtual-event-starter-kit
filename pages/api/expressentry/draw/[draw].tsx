@@ -7,7 +7,7 @@ export default async function drawImages(req: NextApiRequest, res: NextApiRespon
     const { draw } = req.query || {};
     const drawString = draw.toString();
     if (drawString) {
-        url = `${SITE_URL}/drawexpressentry/${encodeURIComponent(
+        url = `${SITE_URL}/drawexpressentry/?draw=${encodeURIComponent(
             drawString
         )}`;
 
