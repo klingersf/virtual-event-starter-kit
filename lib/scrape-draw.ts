@@ -37,8 +37,6 @@ export default async function scrapeDraw({draw = 10}: { draw?: number }) {
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
   await page.setViewport({ width: 800, height: 800 });
-  // await page.goto(url, { waitUntil: 'networkidle0' });
-  // return await page.screenshot({ type: 'png' });
 
   let returnedData;
 
@@ -57,16 +55,16 @@ export default async function scrapeDraw({draw = 10}: { draw?: number }) {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
                 const invitations = (document.querySelectorAll(selector)[1].innerText).replace(/\D/gim, '');
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-                const dateRound = (document.querySelectorAll(selector)[3].innerText).replace('Date and time of round: ', '')
+                const dateRound = (document.querySelectorAll(selector)[3].innerText).replace('Date and time of round:', '')
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-                const points = (document.querySelectorAll(selector)[4].innerText).replace(/\D/gim, '');
+                const roundPoints = (document.querySelectorAll(selector)[4].innerText).replace(/\D/gim, '');
                 const tieBrake = document.querySelectorAll(selector)[5].innerText
 
                 const data = {
                     programTitle,
                     invitations,
                     dateRound,
-                    points,
+                    roundPoints,
                     tieBrake
                 }
 
@@ -75,25 +73,18 @@ export default async function scrapeDraw({draw = 10}: { draw?: number }) {
 
             returnedData = {draw, ...returnedData}
 
-            console.log(returnedData)
             return returnedData;
 
         } catch (error) {
-            // console.log("The element didn't appear.")
             returnedData = {
                 error: `invalid draw ${draw}`
             }
         }
 
-        // console.log(returnedData)
         return returnedData;
     }
 
-    // await browser.close();
-
     const url = `https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds/invitations-${draw}.html`
     return await drawData(url, '.well p')
-
-
 
 }

@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import scrapeDraw from '@lib/scrape-draw';
-import { SITE_URL } from '@lib/constants';
 
 export default async function getDraw(req: NextApiRequest, res: NextApiResponse) {
 
@@ -8,17 +7,8 @@ export default async function getDraw(req: NextApiRequest, res: NextApiResponse)
     const drawString = draw.toString()
 
     const reponseDraw = await scrapeDraw({draw: parseInt(drawString)});
-    //
-    // return
-    //
-    // res.setHeader('Content-Type', `application/json`);
-    //
-    //
-    // if (reponseDraw.error) {
-    //     res.status(404).send(reponseDraw);
-    // }
+    const cacheTime = 60*5
 
-    // res.statusCode = 200;
-    // res.send(reponseDraw)
+    res.setHeader('Cache-Control', `s-maxage=${cacheTime} stale-while-revalidate`);
     res.json(reponseDraw)
 }

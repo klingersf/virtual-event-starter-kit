@@ -39,6 +39,19 @@
     text-transform: uppercase;
 }
 
+.draw {
+    position: absolute;
+    top: 43px;
+    left: 939px;
+    width: 98px;
+    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Oswald';*/
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
 .programTitle {
     position: absolute;
     top: 385px;
@@ -107,14 +120,14 @@
     /*color: #5e2680;*/
 }
 
-.pnp {
+.fsw {
     color: #c8a80d;
 }
 
-.fsw {
+.fst {
     color: orange;
 }
 
-.fst {
+.pnp {
     color: #044e04;
 }
