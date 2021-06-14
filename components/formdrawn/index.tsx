@@ -1,4 +1,5 @@
 import styles from "@components/form.module.css";
+import Link from 'next/link'
 
 export default function FormDraw() {
 
@@ -16,6 +17,9 @@ export default function FormDraw() {
     return(
         <>
             <div className={styles['form-row']}>
+                <Link href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html#wb-auto-4" passHref={true}>
+                    List of Draws
+                </Link>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Draw:
