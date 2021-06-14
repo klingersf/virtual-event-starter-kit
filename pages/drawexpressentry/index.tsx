@@ -56,7 +56,9 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     const canadaImage = (dbCanadaImages: string[]) => {
         const dbSize = dbCanadaImages.length;
         const randomNumber = Math.floor(Math.random() * (dbSize - 0 + 1)) + 0;
-        return dbCanadaImages[randomNumber]['links'];
+        // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        return dbCanadaImages[randomNumber].links;
     }
     
     const backgroundImage = canadaImage(canadaLinkImages.data.rows);
