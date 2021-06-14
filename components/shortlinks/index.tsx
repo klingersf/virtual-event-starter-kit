@@ -19,6 +19,7 @@ export default function ShortLinks() {
                     <li></li>
                     <li><a href={'https://2handyn.vercel.app/api/coin/usd'}>Dólar</a></li>
                     <li><a href={'https://2handyn.vercel.app/api/coin/eur'}>Euro</a></li>
+                    <li><a href={'https://2handyn.vercel.app/expressentry/draw'}>Draw</a></li>
                 </ul>
             </div>
             <div className={styles.centerlinks}>

@@ -48,8 +48,21 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     const res = await fetch(uri);
     const respDrawData = await res.json();
 
+    const idGSX = "176X5hPlYLpKIXhwCFTxTHL4rBJlt4zYnDkmlQm_AelE";
+    const urlCanadaImages = `https://apitest-next.vercel.app/api/gsx2json?id=${idGSX}&sheet=1&columns=false&cache=600`;
+    const resImg = await fetch(urlCanadaImages);
+    const canadaLinkImages = await resImg.json()
+
+    const canadaImage = (dbCanadaImages: string[]) => {
+        const dbSize = dbCanadaImages.length;
+        const randomNumber = Math.floor(Math.random() * (dbSize - 0 + 1)) + 0;
+        return dbCanadaImages[randomNumber].links;
+    }
+    
+    const backgroundImage = canadaImage(canadaLinkImages.data.rows);
+
     const drawData = {
-        backgroundImage: `https://images.unsplash.com/photo-1519832979-6fa011b87667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1335&q=80`,
+        backgroundImage,
         ...respDrawData
     }
 
