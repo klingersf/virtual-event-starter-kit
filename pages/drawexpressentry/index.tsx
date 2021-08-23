@@ -49,7 +49,7 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
     const respDrawData = await res.json();
 
     const idGSX = "176X5hPlYLpKIXhwCFTxTHL4rBJlt4zYnDkmlQm_AelE";
-    const urlCanadaImages = `https://apitest-next.vercel.app/api/gsx2json?id=${idGSX}&sheet=1&columns=false&cache=600`;
+    const urlCanadaImages = `https://apitest-next.vercel.app/api/gsx2json?id=${idGSX}&sheet=canImages&columns=false&cache=600`;
     const resImg = await fetch(urlCanadaImages);
     const canadaLinkImages = await resImg.json()
 
@@ -60,8 +60,9 @@ export const getServerSideProps: (request: NextApiRequest, response: NextApiResp
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return dbCanadaImages[randomNumber].links;
     }
-    
+
     const backgroundImage = canadaImage(canadaLinkImages.data.rows);
+    // const backgroundImage = 'https://images.unsplash.com/photo-1597201278257-3687be27d954?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
 
     const drawData = {
         backgroundImage,
