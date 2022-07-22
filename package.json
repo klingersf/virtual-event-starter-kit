@@ -7,7 +7,7 @@
   "homepage": "https://demo.vercel.events",
   "license": "Apache-2.0",
   "engines": {
-    "node": "16.x"
+    "node": "^14"
   },
   "scripts": {
     "dev": "next",
@@ -19,7 +19,7 @@
     "@agility/content-fetch": "1.0.0",
     "@agility/content-sync": "0.1.23",
     "@reach/skip-nav": "0.12.1",
-    "chrome-aws-lambda": "5.5.0",
+    "chrome-aws-lambda": "10.1.0",
     "classnames": "2.2.6",
     "cookie": "0.4.1",
     "date-fns": "2.16.1",
